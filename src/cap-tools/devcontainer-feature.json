@@ -1,0 +1,33 @@
+{
+    "id": "cap-tools",
+    "version": "1.0.0",
+    "name": "cap-tools",
+    "description": "SAP CAP Development Tools",
+    "options": {
+        "install_cds_dk": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install npm library @sap/cds-dk globally?"
+        },
+        "install_mbt": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install npm library mbt globally?"
+        },
+        "install_cf_cli": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install Cloud Foundry CLI?"
+        },
+        "cds_dk_version": {
+            "type": "string",
+            "default": "latest",
+            "description": "@sap/cds-dk version to be installed"
+        },
+        "install_sqlite3": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install SQLite3 database?"
+        }
+    }    
+}
