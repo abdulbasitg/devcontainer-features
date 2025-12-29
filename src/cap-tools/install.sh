@@ -84,6 +84,6 @@ if [ "$INSTALL_CDSMCP" = "true" ]; then
     echo "Installing cds-mcp server ..."
     npm i -g @cap-js/mcp-server
     #cds-mcp requires write access to the npm-global folder
-    chown -R node:node /usr/local/share/npm-global/lib/node_modules/@cap-js/mcp-server/embeddings
+    chown -R node:node /usr/local/share/npm-global/lib/node_modules/@cap-js/mcp-server/
 fi
 
