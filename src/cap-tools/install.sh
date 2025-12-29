@@ -91,7 +91,6 @@ if [ "$INSTALL_CDSMCP" = "true" ]; then
     #add @cap-js/mcp-server and @ui5/mcp-server configuration to VS Code settings 
     echo "Seeding cds-mcp VS Code config ..."
     install -d "$MCP_CONFIG_DIR"
-    cp "$SCRIPT_DIR/mcp.json" "$MCP_CONFIG_DIR/mcp.json"
-    chown node:node "$MCP_CONFIG_DIR/mcp.json"
+    cp "$SCRIPT_DIR/mcp.json" "$MCP_CONFIG_DIR/mcp.json"    
 fi
 
