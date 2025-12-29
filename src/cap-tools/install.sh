@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
 export CDS_DK_VERSION="${CDS_DK_VERSION:-"latest"}"
 export INSTALL_CDS_DK="${INSTALL_CDS_DK:-"true"}"
 export INSTALL_MBT="${INSTALL_MBT:-"true"}"
@@ -85,5 +87,11 @@ if [ "$INSTALL_CDSMCP" = "true" ]; then
     npm i -g @cap-js/mcp-server
     #cds-mcp requires write access to the npm-global folder
     chown -R node:node /usr/local/share/npm-global/lib/node_modules/@cap-js/mcp-server/
+    MCP_CONFIG_DIR="/home/node/.vscode-server/data/User"
+    #add @cap-js/mcp-server and @ui5/mcp-server configuration to VS Code settings 
+    echo "Seeding cds-mcp VS Code config ..."
+    install -d "$MCP_CONFIG_DIR"
+    cp "$SCRIPT_DIR/mcp.json" "$MCP_CONFIG_DIR/mcp.json"
+    chown node:node "$MCP_CONFIG_DIR/mcp.json"
 fi
 

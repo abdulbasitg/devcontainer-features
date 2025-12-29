@@ -1,0 +1,17 @@
+{
+	"servers": {
+		"cds-mcp": {
+			"type": "stdio",
+			"command": "cds-mcp",
+			"args": []
+		},
+		"@ui5/mcp-server": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"@ui5/mcp-server"
+			]
+		}		
+	},
+	"inputs": []
+}
