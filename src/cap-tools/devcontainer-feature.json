@@ -28,6 +28,11 @@
             "type": "boolean",
             "default": true,
             "description": "Install SQLite3 database?"
+        },
+        "install_cdsmcp": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install cds-mcp server?"
         }
     }    
 }

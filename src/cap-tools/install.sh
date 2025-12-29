@@ -6,6 +6,7 @@ export INSTALL_CDS_DK="${INSTALL_CDS_DK:-"true"}"
 export INSTALL_MBT="${INSTALL_MBT:-"true"}"
 export INSTALL_CF_CLI="${INSTALL_CF_CLI:-"true"}"
 export INSTALL_SQLITE3="${INSTALL_SQLITE3:-"true"}"
+export INSTALL_CDSMCP="${INSTALL_CDSMCP:-"true"}"
 
 install_cf() {
     wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | gpg --dearmor -o /usr/share/keyrings/cli.cloudfoundry.org.gpg
@@ -58,6 +59,11 @@ install_cf() {
 }
 
 apt-get update -y
+
+if [ "$INSTALL_CDSMCP" = "true" ]; then
+    echo "Installing cds-mcp server ..."
+    npm i -g @cap-js/mcp-server
+fi
 
 if [ "$INSTALL_CDS_DK" = "true" ]; then
     echo "Installing @sap/cds-dk version ${CDS_DK_VERSION} ..."
