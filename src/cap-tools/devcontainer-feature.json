@@ -1,6 +1,6 @@
 {
     "id": "cap-tools",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "name": "cap-tools",
     "description": "SAP CAP Development Tools",
     "options": {
