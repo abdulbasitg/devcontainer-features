@@ -60,11 +60,6 @@ install_cf() {
 
 apt-get update -y
 
-if [ "$INSTALL_CDSMCP" = "true" ]; then
-    echo "Installing cds-mcp server ..."
-    npm i -g @cap-js/mcp-server
-fi
-
 if [ "$INSTALL_CDS_DK" = "true" ]; then
     echo "Installing @sap/cds-dk version ${CDS_DK_VERSION} ..."
     npm install -g @sap/cds-dk@${CDS_DK_VERSION}
@@ -83,5 +78,12 @@ fi
 if [ "$INSTALL_CF_CLI" = "true" ]; then
     echo "Installing Cloud Foundry CLI ..."
     install_cf
-
 fi
+
+if [ "$INSTALL_CDSMCP" = "true" ]; then
+    echo "Installing cds-mcp server ..."
+    npm i -g @cap-js/mcp-server
+    #cds-mcp requires write access to the npm-global folder
+    chown -R node:node /usr/local/share/npm-global/lib/node_modules/@cap-js/mcp-server/embeddings
+fi
+
