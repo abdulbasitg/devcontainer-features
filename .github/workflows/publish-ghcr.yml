@@ -32,10 +32,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish Dev Container Features
+      - name: Publish cap-tools feature
         run: >-
           npx -y @devcontainers/cli@latest
-          features publish ./src
+          features publish ./src/cap-tools
           --registry ghcr.io
-          --namespace "${{ github.repository_owner }}/${{ github.event.repository.name }}"
+          --namespace "${{ github.repository_owner }}"
           --log-level info
