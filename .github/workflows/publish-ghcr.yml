@@ -37,5 +37,5 @@ jobs:
           npx -y @devcontainers/cli@latest
           features publish ./src
           --registry ghcr.io
-          --namespace "${{ github.repository_owner }}/${{ github.event.repository.name }}/cap-tools"
+          --namespace "${{ github.repository_owner }}/${{ github.event.repository.name }}"
           --log-level info
