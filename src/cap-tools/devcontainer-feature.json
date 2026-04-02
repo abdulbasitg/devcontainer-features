@@ -33,6 +33,11 @@
             "type": "boolean",
             "default": true,
             "description": "Install cds-mcp server?"
+        },
+        "install_uv": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install uv, uvx?"
         }
     }    
 }
