@@ -35,7 +35,7 @@ jobs:
       - name: Publish Dev Container Features
         run: >-
           npx -y @devcontainers/cli@latest
-          features publish ./src
+          features publish ./src/cap-tools
           --registry ghcr.io
           --namespace "${{ github.repository_owner }}/${{ github.event.repository.name }}"
           --log-level info
