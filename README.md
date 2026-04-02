@@ -11,6 +11,7 @@ This repo includes a GitHub Actions workflow that publishes the feature collecti
 Trigger a publish by pushing a semver tag:
 
 ```sh
+update version in src/cap-tools/devcontainer-feature.json
 git tag v1.0.0
 git push origin v1.0.0
 ```
