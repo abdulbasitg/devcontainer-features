@@ -1,6 +1,6 @@
 {
     "id": "cap-tools",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "name": "cap-tools",
     "description": "SAP CAP Development Tools",
     "options": {
@@ -14,10 +14,20 @@
             "default": true,
             "description": "Install npm library mbt globally?"
         },
+        "mbt_version": {
+            "type": "string",
+            "default": "latest",
+            "description": "npm version of mbt to install"
+        },
         "install_cf_cli": {
             "type": "boolean",
             "default": true,
             "description": "Install Cloud Foundry CLI?"
+        },
+        "cf_cli_version": {
+            "type": "string",
+            "default": "v8",
+            "description": "Cloud Foundry CLI release tag, or v8 for the latest v8 release"
         },
         "cds_dk_version": {
             "type": "string",
@@ -29,6 +39,26 @@
             "default": true,
             "description": "Install SQLite3 database?"
         },
+        "install_ripgrep": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install ripgrep (rg)?"
+        },
+        "install_jq": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install jq for JSON processing?"
+        },
+        "install_shellcheck": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install ShellCheck for shell script analysis?"
+        },
+        "install_python": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install Python 3, pip, and venv support?"
+        },
         "install_cdsmcp": {
             "type": "boolean",
             "default": true,
@@ -38,6 +68,16 @@
             "type": "boolean",
             "default": true,
             "description": "Install uv, uvx?"
+        },
+        "uv_version": {
+            "type": "string",
+            "default": "latest",
+            "description": "uv release version to install, or latest"
+        },
+        "cdsmcp_version": {
+            "type": "string",
+            "default": "latest",
+            "description": "npm version of @cap-js/mcp-server to install"
         }
     }    
 }
