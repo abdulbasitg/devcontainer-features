@@ -16,7 +16,22 @@ git tag v1.0.0
 git push origin v1.0.0
 ```
 
-After publishing, the feature can be referenced from:
+After publishing, the features can be referenced from:
 
 - `ghcr.io/<owner>/<repo>/cap-tools`
+- `ghcr.io/<owner>/<repo>/ai-tools`
+
+The `ai-tools` feature installs Claude Code, GitHub Copilot CLI, and OpenAI Codex CLI independently. These AI CLIs are disabled by default. Ripgrep, jq, and uv are enabled by default; ShellCheck and Python are disabled by default.
+
+```json
+{
+	"features": {
+		"ghcr.io/<owner>/<repo>/ai-tools:1.0.0": {
+			"install_claude": true,
+			"install_copilot": false,
+			"install_codex": true
+	}
+	}
+}
+```
 
