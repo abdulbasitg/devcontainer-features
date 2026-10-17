@@ -3,6 +3,8 @@ name: Publish to GHCR
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
     tags:
       - "v*.*.*"
 
@@ -36,6 +38,14 @@ jobs:
         run: >-
           npx -y @devcontainers/cli@latest
           features publish ./src/cap-tools
+          --registry ghcr.io
+          --namespace "${{ github.repository_owner }}/${{ github.event.repository.name }}"
+          --log-level info
+
+      - name: Publish AI Tools Feature
+        run: >-
+          npx -y @devcontainers/cli@latest
+          features publish ./src/ai-tools
           --registry ghcr.io
           --namespace "${{ github.repository_owner }}/${{ github.event.repository.name }}"
           --log-level info
