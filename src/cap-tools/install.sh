@@ -10,12 +10,6 @@ export INSTALL_MBT="${INSTALL_MBT:-"true"}"
 export INSTALL_CF_CLI="${INSTALL_CF_CLI:-"true"}"
 export CF_CLI_VERSION="${CF_CLI_VERSION:-"v8"}"
 export INSTALL_SQLITE3="${INSTALL_SQLITE3:-"true"}"
-export INSTALL_RIPGREP="${INSTALL_RIPGREP:-"true"}"
-export INSTALL_JQ="${INSTALL_JQ:-"true"}"
-export INSTALL_SHELLCHECK="${INSTALL_SHELLCHECK:-"false"}"
-export INSTALL_PYTHON="${INSTALL_PYTHON:-"false"}"
-export UV_VERSION="${UV_VERSION:-"latest"}"
-export INSTALL_UV="${INSTALL_UV:-"true"}"
 export CDSMCP_VERSION="${CDSMCP_VERSION:-"latest"}"
 export INSTALL_CDSMCP="${INSTALL_CDSMCP:-"true"}"
 
@@ -84,7 +78,7 @@ if [ "$INSTALL_MBT" = "true" ]; then
     npm install -g "mbt@${MBT_VERSION}"
 fi
 
-if [ "$INSTALL_SQLITE3" = "true" ] || [ "$INSTALL_RIPGREP" = "true" ] || [ "$INSTALL_JQ" = "true" ] || [ "$INSTALL_SHELLCHECK" = "true" ] || [ "$INSTALL_PYTHON" = "true" ]; then
+if [ "$INSTALL_SQLITE3" = "true" ]; then
     apt-get update -y
 fi
 
@@ -93,44 +87,9 @@ if [ "$INSTALL_SQLITE3" = "true" ]; then
     apt-get -y install --no-install-recommends pkg-config libsqlite3-dev sqlite3
 fi
 
-if [ "$INSTALL_RIPGREP" = "true" ]; then
-    echo "[cap-tools] Installing ripgrep ..."
-    apt-get -y install --no-install-recommends ripgrep
-fi
-
-if [ "$INSTALL_JQ" = "true" ]; then
-    echo "[cap-tools] Installing jq ..."
-    apt-get -y install --no-install-recommends jq
-fi
-
-if [ "$INSTALL_SHELLCHECK" = "true" ]; then
-    echo "[cap-tools] Installing ShellCheck ..."
-    apt-get -y install --no-install-recommends shellcheck
-fi
-
-if [ "$INSTALL_PYTHON" = "true" ]; then
-    echo "[cap-tools] Installing Python 3 with pip and venv support ..."
-    apt-get -y install --no-install-recommends python3 python3-pip python3-venv
-fi
-
 if [ "$INSTALL_CF_CLI" = "true" ]; then
     echo "[cap-tools] Installing Cloud Foundry CLI ..."
     install_cf
-fi
-
-if [ "$INSTALL_UV" = "true" ]; then
-    echo "[cap-tools] Installing uv, uvx version ${UV_VERSION} ..."
-    if [ "$UV_VERSION" = "latest" ]; then
-        UV_INSTALL_URL="https://astral.sh/uv/install.sh"
-    else
-        UV_INSTALL_URL="https://astral.sh/uv/${UV_VERSION}/install.sh"
-    fi
-    UV_INSTALLER=$(mktemp)
-    trap 'rm -f "$UV_INSTALLER"' 0
-    curl -fsSL -o "$UV_INSTALLER" "$UV_INSTALL_URL"
-    env UV_INSTALL_DIR="/usr/local/bin" sh "$UV_INSTALLER"
-    rm -f "$UV_INSTALLER"
-    trap - 0
 fi
 
 if [ "$INSTALL_CDSMCP" = "true" ]; then

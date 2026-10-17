@@ -1,0 +1,53 @@
+{
+    "id": "ai-tools",
+    "version": "1.0.0",
+    "name": "AI and Developer CLI Tools",
+    "description": "Optional AI CLIs and developer utilities",
+    "options": {
+        "install_claude": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install Claude Code CLI?"
+        },
+        "install_copilot": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install GitHub Copilot CLI?"
+        },
+        "install_codex": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install OpenAI Codex CLI?"
+        },
+        "install_ripgrep": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install ripgrep (rg)?"
+        },
+        "install_jq": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install jq for JSON processing?"
+        },
+        "install_shellcheck": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install ShellCheck for shell script analysis?"
+        },
+        "install_python": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install Python 3, pip, and venv support?"
+        },
+        "install_uv": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install uv and uvx?"
+        },
+        "uv_version": {
+            "type": "string",
+            "default": "latest",
+            "description": "uv release version to install, or latest"
+        }
+    }
+}
